@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import packageJson from './package.json';
+import packageJson from '../package.json';
 
 const App = () => {
   return (
