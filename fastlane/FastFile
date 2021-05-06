@@ -1,0 +1,24 @@
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.overload('.env')
+end
+
+platform :android do
+  desc "RN Production App"
+  lane :distribute do
+    gradle(task: 'clean assembleRelease', project_dir: './android', print_command: false, properties: {
+      "MYAPP_UPLOAD_STORE_FILE" => ENV["MYAPP_UPLOAD_STORE_FILE"],
+      "MYAPP_UPLOAD_STORE_PASSWORD" => ENV["MYAPP_UPLOAD_STORE_PASSWORD"],
+      "MYAPP_UPLOAD_KEY_ALIAS" => ENV["MYAPP_UPLOAD_KEY_ALIAS"],
+      "MYAPP_UPLOAD_KEY_PASSWORD" => ENV["MYAPP_UPLOAD_KEY_PASSWORD"]
+    })
+
+    firebase_app_distribution(
+      app: "1:905732111903:android:7aace3e18e0b5455811f2a",
+      testers: "tester1@company.com, tester2@company.com",
+      firebase_cli_token: ENV["FIREBASE_TOKEN"],
+      release_notes: "Lots of amazing new features to test out!"
+    )
+  end
+end
