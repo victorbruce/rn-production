@@ -30,6 +30,16 @@ This is a project based on a blog series I'm writing on medium on how to:
       <li>Upload signed APK to Firebase App Distribution</li>
     </ul>
   </li>
+  <li> 
+    🗂 <strong>fastlane</strong>
+    <ul>
+      <li>Install and setup fastlane</li>
+      <li>Define an android lane to build and distribute app</li>
+      <li>Install Firebase App Distribution plugin</li>
+      <li>Authenticate with Firebase</li>
+      <li>Run the command to build and distribute app with fastlane</li>
+    </ul>
+  </li>
 </ul>
 
 ### How to run the App
