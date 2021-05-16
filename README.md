@@ -1,11 +1,12 @@
 # rnProduction
 
 ### About
+
 This is a project based on a blog series I'm writing on medium on how to:
 
-1. Prepare a React Native app for **release/production**
-2. How to distribute your app to **Firebase App Distribution**
-3. How to **automate** the build and distribution of your app using Fastlane
+1. <a href="https://victorbruce82.medium.com/series-preparing-your-react-native-app-for-production-android-part-1-e7eae578235b">Preparing Your React Native App for Production(Android) — Part 1</a>
+2. <a href="https://victorbruce82.medium.com/series-publish-your-production-ready-react-native-application-to-firebase-app-14651017d443">Publish your Production-ready React Native Application to Firebase App Distribution(Android) — Part 2</a>
+3. <a href="https://victorbruce82.medium.com/series-publish-a-production-ready-react-native-app-to-firebase-app-distribution-using-fastlane-c68f39eb3d93">Publish a Production-ready React Native App To Firebase App Distribution Using Fastlane. — Part 3</a>
 4. Build a CI/CD pipeline using **Fastlane**, **Github Actions**, and **Firebase App Distribution**
 
 ### Branches:
@@ -43,23 +44,28 @@ This is a project based on a blog series I'm writing on medium on how to:
 </ul>
 
 ### How to run the App
-*Pre-requisite*:
+
+_Pre-requisite_:
 
 - A react-native environment setup
 
-*Install the App*:
+_Install the App_:
+
 - Clone the project from Github onto your local machine
 - Open the project in your IDE or text editor of your choice
-- Install the npm dependencies by running  `npm install` inside your terminal
+- Install the npm dependencies by running `npm install` inside your terminal
 - **cd** into ios/ directory and run `pod install`
 
-*Running the App*:
+_Running the App_:
+
 - Inside your terminal, run the command `npx react-native start` to start the development server.
-- Run the command in a new terminal window `npx react-native run-ios` to install and run the app on iOS  simulator.
+- Run the command in a new terminal window `npx react-native run-ios` to install and run the app on iOS simulator.
 - Or run the command in a new terminal window `npx react-native run-ios` to install and run the app on an Android emulator.
 
 ### How To Contribute
+
 - Submit an issue on the repo
 
 ### License
+
 - MIT
