@@ -62,6 +62,6 @@ jobs:
         run: | 
           git config --local user.email "victorbruce82@gmail.com"
           git config --local user.name "victorbruce"
-          node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-          git tag -a ${{env.PACKAGE_VERSION}} -m `${{env.PACKAGE_VERSION}}`
+          export PACKAGE_VERSION=$(node -p -e 'require("./package.json").version')
+          git tag -a "$PACKAGE_VERSION" -m "latest version"
           git push origin --tags
