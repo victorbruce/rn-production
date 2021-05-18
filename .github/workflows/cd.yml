@@ -1,0 +1,67 @@
+name: Deploy To Firebase App Distribution And Bump Tag Version
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-production:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository on Github VM
+        uses: actions/checkout@v2
+
+      - name: Run Node in VM
+        uses: actions/setup-node@master
+      
+      - name: Decrypting
+        run: sh ./.github/scripts/decrypt.sh
+        env:
+          KEYS_KEYSTORE_PASSPHRASE: ${{secrets.KEYS_KEYSTORE_PASSPHRASE}}
+      
+      - name: Make fastlane/keys.properties executable
+        run: |
+          chmod +x fastlane/keys.properties
+
+      - name: Dump fastlane/keys.properties to .env file
+        run: |
+          cat fastlane/keys.properties > fastlane/.env
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Fastlane
+        run: |
+          bundle install
+          bundle update fastlane
+
+      - name: Build and Publish Mobile App
+        run: |
+          bundle exec fastlane android distribute      
+  
+
+  tag-version-release:
+    needs: build-production
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@master
+
+      - name: Install Dependencies
+        run: | 
+          npm install
+          
+      - name: Get Version Number
+        run: | 
+          git config --local user.email "victorbruce82@gmail.com"
+          git config --local user.name "victorbruce"
+          node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+          git tag -a ${{env.PACKAGE_VERSION}} -m `${{env.PACKAGE_VERSION}}`
+          git push origin --tags

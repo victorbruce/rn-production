@@ -15,6 +15,14 @@ Install _fastlane_ using
 or alternatively using `brew install fastlane`
 
 # Available Actions
+### bump
+```
+fastlane bump
+```
+Bump build numbers, and set the version to match the pacakage.json version.
+
+----
+
 ## Android
 ### android distribute
 ```

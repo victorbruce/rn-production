@@ -1,13 +1,16 @@
 {
   "name": "rnproduction",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "bump-patch": "npm version patch --no-git-tag-version && bundle exec fastlane bump",
+    "bump-minor": "npm version minor --no-git-tag-version && bundle exec fastlane bump",
+    "bump-major": "npm version major --no-git-tag-version && bundle exec fastlane bump"
   },
   "dependencies": {
     "@react-native-firebase/app": "^11.4.1",
