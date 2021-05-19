@@ -1,8 +1,12 @@
-# rnProduction
+<img src="./screenshots/rnProduction.png" />
 
 ### About
 
-This is a project based on a blog series I'm writing on medium on how to:
+A project based on a blog series on how to prepare a react-native app for production, automate the buid process using
+fastlane and build a CI/CD pipeline using Github Actions with fastlane to deploy code automatically based on a Github
+Event Type.
+
+Below are <strong>links</strong> to the blog articles on medium:
 
 1. <a href="https://victorbruce82.medium.com/series-preparing-your-react-native-app-for-production-android-part-1-e7eae578235b">Preparing Your React Native App for Production(Android) — Part 1</a>
 2. <a href="https://victorbruce82.medium.com/series-publish-your-production-ready-react-native-application-to-firebase-app-14651017d443">Publish your Production-ready React Native Application to Firebase App Distribution(Android) — Part 2</a>
@@ -41,6 +45,18 @@ This is a project based on a blog series I'm writing on medium on how to:
       <li>Run the command to build and distribute app with fastlane</li>
     </ul>
   </li>
+
+  <li>
+    🗂 <strong>ci-cd</strong>
+    <ul>
+      <li>Setup Github Actions and define a CD workflfow file using YAML syntax.</li>
+      <li>Add a lane in FastFile to bump android and ios version numbers using Js version number as the <strong>source of truth</strong></li>
+      <li>Add a script run bump javascript, android, and ios version numbers(patch/minor/major)</li>
+      <li>Encrypt keys and keystore files using <strong>gpg tool</strong></li>
+      <li>Add a script file to decrypt keys and keystore files when running in Github VM</li>
+      <li>Add a job runner to the cd workflow file to tag each release with the lastest version number</li>
+    </ul>
+  </li>
 </ul>
 
 ### How to run the App
@@ -61,6 +77,11 @@ _Running the App_:
 - Inside your terminal, run the command `npx react-native start` to start the development server.
 - Run the command in a new terminal window `npx react-native run-ios` to install and run the app on iOS simulator.
 - Or run the command in a new terminal window `npx react-native run-ios` to install and run the app on an Android emulator.
+
+### Screenshot
+<br />
+<img src="./screenshots/android-ios.png" />
+<br /><br />
 
 ### How To Contribute
 
